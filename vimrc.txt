@@ -16,6 +16,10 @@ set showcmd             " show (partial) command in status line
 filetype indent on
 
 " Automatically closing braces
-inoremap {<CR> {<CR>}<Esc>ko<tab>
-inoremap [<CR> [<CR>]<Esc>ko<tab>
-inoremap (<CR> (<CR>)<Esc>ko<tab>
+" inoremap {<CR> {<CR>}<Esc>ko<tab>
+" inoremap [<CR> [<CR>]<Esc>ko<tab>
+" inoremap (<CR> (<CR>)<Esc>ko<tab>
+inoremap {<CR> {<CR>}<Esc>ko
+inoremap [<CR> [<CR>]<Esc>ko
+inoremap (<CR> (<CR>)<Esc>ko
+
