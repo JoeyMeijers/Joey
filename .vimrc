@@ -1,105 +1,26 @@
-" Specify a directory for plugins
-" " - For Neovim: ~/.local/share/nvim/plugged
-" " - Avoid using standard Vim directory names like 'plugin'
-call plug#begin('~/.vim/plugged')
-Plug 'davidhalter/jedi-vim'
-Plug 'SirVer/ultisnips', { 'commit': 'a909dee82b6eaaa3ae001e27c3e95c58d487d242'}
-Plug 'honza/vim-snippets'
-Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
-Plug 'sheerun/vim-polyglot'
-" Plug 'ludovicchabant/vim-gutentags'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'flazz/vim-colorschemes'
-Plug 'airblade/vim-gitgutter'
-Plug 'majutsushi/tagbar'
-" Initialize plugin system
-call plug#end()
-"
-"
-" Theme options
-set t_Co=256
-" colorscheme Monokai
-set background=dark    " Setting dark mode
-""" Hilight search and set numbers
-set hlsearch
-highlight Search guibg=#af005f ctermbg=125
-"""" clear highlight with <esc> after a search
-nnoremap <C-h> :noh<return>
+" enable syntax highlighting
+syntax enable
+
+" show line numbers
 set number
 
-set cc=80
+" set tabs to have 4 spaces
+set ts=4
 
+" indent when moving to the next line while writing code
+set autoindent
+
+" expand tabs into spaces
+set expandtab
+
+" when using the >> or << commands, shift lines by 4 spaces
+set shiftwidth=4
+
+" show a visual line under the cursor's current line
 set cursorline
 
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set noswapfile
-set nowrap
-set incsearch
-set colorcolumn=80
-" Airline configuration
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+" show the matching part of the pair for [] {} and ()
+set showmatch
 
-" Nerdtree configuration
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.pyc$', '\~$']
-" autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-" Switching between buffers
-" Set commands to switching between buffers
-:nnoremap <Tab> :bnext!<CR>
-:nnoremap <S-Tab> :bprevious!<CR>
-:nnoremap <C-X> :bp<bar>sp<bar>bn<bar>bd<CR>
-" add closing braces
-" inoremap " ""<left>
-" inoremap ' ''<left>
-inoremap ( ()<left>
-inoremap [ []<left>
-inoremap { {}<left>
-
-inoremap {<CR> {<CR>}<ESC>O
-inoremap {;<CR> {<CR>};<ESC>O
-
-inoremap (<CR> (<CR>)<ESC>O
-inoremap (;<CR> (<CR>);<ESC>O
-
-inoremap [<CR> [<CR>]<ESC>O
-inoremap [;<CR> [<CR>];<ESC>O
-
-" File searchs
-map <C-p> :Files<CR>
-
-" Ale Configuration
-"""" Better formatting fo worp/ale
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%] [%...code...%]'
-"""" Enable completion where available.
-let g:ale_completion_enabled = 1
-""" Customize linters that are turned on
-let g:ale_linters = {
-	\   'python': ['flake8'],
-	\}
-let g:ale_set_highlights = 0
-
-" Fix keys
-set backspace=2
-
-let g:UltiSnipsExpandTrigger='<tab>'
-let g:UltiSnipsListSnippets='<c-tab>'
-let g:UltiSnipsJumpForwardTrigger='<c-j>'
-let g:UltiSnipsJumpBackwardTrigger='<c-k>'
-
-nmap <F8> :TagbarToggle<CR>
-
+" enable all Python syntax highlighting features
+let python_highlight_all = 1
